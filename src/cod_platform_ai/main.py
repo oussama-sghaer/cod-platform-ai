@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from datetime import datetime
+from datetime import datetime, timezone
 
 app = FastAPI(title="COD Platform AI", version="0.0.1")
 
@@ -10,5 +10,5 @@ def health():
         "status": "ok",
         "service": "cod-platform-ai",
         "version": "0.0.1",
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
     }
