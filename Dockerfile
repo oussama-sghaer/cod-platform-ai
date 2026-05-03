@@ -10,6 +10,7 @@ COPY pyproject.toml uv.lock ./
 RUN uv sync --frozen --no-dev
 
 FROM base AS runner
+ENV PYTHONPATH=/app/src
 COPY --from=builder /app/.venv /app/.venv
 COPY src/ ./src/
 USER appuser
